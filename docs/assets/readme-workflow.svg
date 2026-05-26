@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="560" viewBox="0 0 1280 560" role="img" aria-labelledby="title desc">
+  <title id="title">VibeMotion editing workflow</title>
+  <desc id="desc">Workflow diagram from media import to prompt planning, motion blocks, QA, and final render.</desc>
+  <defs>
+    <style>
+      .bg { fill: #f5f1e8; }
+      .title { font: 800 40px "Segoe UI", Arial, sans-serif; fill: #1b2226; }
+      .subtitle { font: 500 18px "Segoe UI", Arial, sans-serif; fill: #56645f; }
+      .card { fill: #ffffff; stroke: #cfc8b8; stroke-width: 2; rx: 16; }
+      .head { font: 800 21px "Segoe UI", Arial, sans-serif; fill: #1b2226; }
+      .copy { font: 500 15px "Segoe UI", Arial, sans-serif; fill: #53615b; }
+      .chip { font: 800 13px "Segoe UI", Arial, sans-serif; fill: #ffffff; }
+      .arrow { stroke: #6e7b75; stroke-width: 4; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+    </style>
+  </defs>
+  <rect width="1280" height="560" class="bg"/>
+  <text x="56" y="72" class="title">Inside the app: build, preview, QA, tune, render</text>
+  <text x="60" y="106" class="subtitle">VibeMotion is not one-click magic. It keeps each step visible so motion can be improved instead of guessed.</text>
+
+  <g transform="translate(56 168)">
+    <rect width="202" height="220" class="card"/>
+    <rect x="26" y="26" width="150" height="70" rx="12" fill="#1b2226"/>
+    <circle cx="58" cy="61" r="18" fill="#48b8a6"/>
+    <path d="M94 42 h54 M94 62 h44 M94 82 h62" stroke="#d8e1dc" stroke-width="5"/>
+    <text x="26" y="128" class="head">1. Import</text>
+    <text x="26" y="162" class="copy">Upload video or sync</text>
+    <text x="26" y="184" class="copy">Figma frames/layers.</text>
+  </g>
+  <path d="M278 278 H336" class="arrow"/>
+  <path d="M326 266 l12 12 l-12 12" class="arrow"/>
+
+  <g transform="translate(352 168)">
+    <rect width="202" height="220" class="card"/>
+    <rect x="26" y="26" width="150" height="70" rx="12" fill="#48b8a6"/>
+    <path d="M50 52 h102 M50 72 h72" stroke="#ffffff" stroke-width="6"/>
+    <text x="26" y="128" class="head">2. Plan</text>
+    <text x="26" y="162" class="copy">Agent creates an edit</text>
+    <text x="26" y="184" class="copy">plan from your brief.</text>
+  </g>
+  <path d="M574 278 H632" class="arrow"/>
+  <path d="M622 266 l12 12 l-12 12" class="arrow"/>
+
+  <g transform="translate(648 168)">
+    <rect width="202" height="220" class="card"/>
+    <rect x="26" y="26" width="150" height="70" rx="12" fill="#f1c65b"/>
+    <rect x="46" y="44" width="110" height="16" rx="5" fill="#1b2226"/>
+    <rect x="46" y="70" width="76" height="16" rx="5" fill="#1b2226"/>
+    <text x="26" y="128" class="head">3. Motion</text>
+    <text x="26" y="162" class="copy">Add whole-frame, text,</text>
+    <text x="26" y="184" class="copy">card, image, or LTX blocks.</text>
+  </g>
+  <path d="M870 278 H928" class="arrow"/>
+  <path d="M918 266 l12 12 l-12 12" class="arrow"/>
+
+  <g transform="translate(944 168)">
+    <rect width="202" height="220" class="card"/>
+    <rect x="26" y="26" width="150" height="70" rx="12" fill="#8da2ff"/>
+    <path d="M52 76 C76 38 104 104 150 48" stroke="#ffffff" stroke-width="7" fill="none"/>
+    <text x="26" y="128" class="head">4. QA</text>
+    <text x="26" y="162" class="copy">Check smoothness, timing,</text>
+    <text x="26" y="184" class="copy">artifacts, parity.</text>
+  </g>
+
+  <rect x="234" y="430" width="812" height="56" rx="18" fill="#1b2226"/>
+  <text x="264" y="464" class="chip">Result: preview and final render should tell the same story before export.</text>
+</svg>

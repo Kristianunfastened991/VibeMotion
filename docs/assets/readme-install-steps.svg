@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="540" viewBox="0 0 1280 540" role="img" aria-labelledby="title desc">
+  <title id="title">VibeMotion install flow</title>
+  <desc id="desc">Five step Windows install flow from GitHub ZIP download to local browser app.</desc>
+  <defs>
+    <style>
+      .bg { fill: #f6f7f4; }
+      .card { fill: #ffffff; stroke: #cfd8d2; stroke-width: 2; rx: 18; }
+      .title { font: 800 38px "Segoe UI", Arial, sans-serif; fill: #192024; }
+      .step { font: 800 20px "Segoe UI", Arial, sans-serif; fill: #192024; }
+      .copy { font: 500 16px "Segoe UI", Arial, sans-serif; fill: #41504a; }
+      .small { font: 600 13px "Segoe UI", Arial, sans-serif; fill: #667770; }
+      .num { font: 900 34px "Segoe UI", Arial, sans-serif; fill: #ffffff; }
+      .circle { fill: #192024; }
+      .line { stroke: #aebbb4; stroke-width: 4; stroke-linecap: round; }
+      .accentA { fill: #48b8a6; }
+      .accentB { fill: #f1c65b; }
+      .accentC { fill: #ee8d61; }
+      .accentD { fill: #8da2ff; }
+    </style>
+  </defs>
+  <rect width="1280" height="540" class="bg"/>
+  <text x="54" y="72" class="title">Install VibeMotion from GitHub in five visible steps</text>
+  <text x="58" y="105" class="copy">The repository stays small. Runtime folders, private videos, logs, and model weights are created locally on first launch.</text>
+  <path d="M182 254 H1098" class="line"/>
+
+  <g transform="translate(54 150)">
+    <rect width="210" height="250" class="card"/>
+    <circle cx="44" cy="44" r="28" class="circle"/>
+    <text x="34" y="56" class="num">1</text>
+    <rect x="78" y="28" width="92" height="34" rx="8" class="accentA"/>
+    <text x="26" y="104" class="step">Download ZIP</text>
+    <text x="26" y="140" class="copy">GitHub -> Code</text>
+    <text x="26" y="164" class="copy">-> Download ZIP</text>
+    <text x="26" y="210" class="small">No models inside Git.</text>
+  </g>
+
+  <g transform="translate(298 150)">
+    <rect width="210" height="250" class="card"/>
+    <circle cx="44" cy="44" r="28" class="circle"/>
+    <text x="34" y="56" class="num">2</text>
+    <path d="M92 26 h74 v52 h-74 z" fill="#f1c65b"/>
+    <path d="M102 38 h54 M102 52 h54 M102 66 h38" stroke="#192024" stroke-width="4"/>
+    <text x="26" y="104" class="step">Extract folder</text>
+    <text x="26" y="140" class="copy">Use a normal folder</text>
+    <text x="26" y="164" class="copy">like Desktop.</text>
+    <text x="26" y="210" class="small">Do not run from ZIP.</text>
+  </g>
+
+  <g transform="translate(542 150)">
+    <rect width="210" height="250" class="card"/>
+    <circle cx="44" cy="44" r="28" class="circle"/>
+    <text x="34" y="56" class="num">3</text>
+    <rect x="88" y="28" width="86" height="52" rx="10" class="accentC"/>
+    <path d="M112 54 h38 M132 34 v40" stroke="#ffffff" stroke-width="5"/>
+    <text x="26" y="104" class="step">Launch BAT</text>
+    <text x="26" y="140" class="copy">Double-click</text>
+    <text x="26" y="164" class="copy">Launch-VibeMotion.bat</text>
+    <text x="26" y="210" class="small">Keep terminal open.</text>
+  </g>
+
+  <g transform="translate(786 150)">
+    <rect width="210" height="250" class="card"/>
+    <circle cx="44" cy="44" r="28" class="circle"/>
+    <text x="34" y="56" class="num">4</text>
+    <rect x="88" y="26" width="86" height="56" rx="10" class="accentD"/>
+    <path d="M108 44 h46 M108 58 h36 M108 72 h22" stroke="#ffffff" stroke-width="5"/>
+    <text x="26" y="104" class="step">Auto setup</text>
+    <text x="26" y="140" class="copy">Dependencies, CUDA,</text>
+    <text x="26" y="164" class="copy">FFmpeg, models.</text>
+    <text x="26" y="210" class="small">First launch is slow.</text>
+  </g>
+
+  <g transform="translate(1030 150)">
+    <rect width="210" height="250" class="card"/>
+    <circle cx="44" cy="44" r="28" class="circle"/>
+    <text x="34" y="56" class="num">5</text>
+    <rect x="84" y="28" width="94" height="56" rx="10" fill="#192024"/>
+    <circle cx="108" cy="56" r="9" class="accentA"/>
+    <path d="M130 44 h30 M130 58 h24 M130 72 h34" stroke="#dce6e1" stroke-width="4"/>
+    <text x="26" y="104" class="step">Use app</text>
+    <text x="26" y="140" class="copy">Browser opens at</text>
+    <text x="26" y="164" class="copy">127.0.0.1:8010</text>
+    <text x="26" y="210" class="small">Terminal is server.</text>
+  </g>
+</svg>

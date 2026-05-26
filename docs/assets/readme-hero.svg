@@ -1,0 +1,87 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720" role="img" aria-labelledby="title desc">
+  <title id="title">VibeMotion product overview</title>
+  <desc id="desc">Overview diagram showing video, Figma, prompt driven motion, preview QA, and final render.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#101417"/>
+      <stop offset="0.52" stop-color="#1d2429"/>
+      <stop offset="1" stop-color="#111315"/>
+    </linearGradient>
+    <linearGradient id="screen" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f8faf7"/>
+      <stop offset="1" stop-color="#dfe7e2"/>
+    </linearGradient>
+    <style>
+      .title { font: 800 60px "Segoe UI", Arial, sans-serif; fill: #f8faf7; }
+      .subtitle { font: 400 23px "Segoe UI", Arial, sans-serif; fill: #c6d2cb; }
+      .label { font: 800 18px "Segoe UI", Arial, sans-serif; fill: #f8faf7; }
+      .copy { font: 500 15px "Segoe UI", Arial, sans-serif; fill: #d8e1dc; }
+      .muted { font: 500 13px "Segoe UI", Arial, sans-serif; fill: #71827a; }
+      .box { fill: #1f282d; stroke: #405058; stroke-width: 2; rx: 12; }
+      .pill { fill: #2a3439; stroke: #53646c; stroke-width: 1.5; rx: 18; }
+      .accentA { fill: #48b8a6; }
+      .accentB { fill: #f1c65b; }
+      .accentC { fill: #ee8d61; }
+      .accentD { fill: #8da2ff; }
+    </style>
+  </defs>
+  <rect width="1280" height="720" fill="url(#bg)"/>
+  <rect x="52" y="52" width="1176" height="616" rx="28" fill="#151a1d" stroke="#324149" stroke-width="2"/>
+  <text x="92" y="130" class="title">VibeMotion</text>
+  <text x="96" y="166" class="subtitle">Local AI video editor for prompt-driven motion, Figma layers, LTX previews, and final renders.</text>
+
+  <rect x="92" y="222" width="440" height="340" rx="18" fill="url(#screen)" stroke="#ffffff" stroke-opacity="0.32"/>
+  <rect x="116" y="248" width="392" height="38" rx="9" fill="#20282d"/>
+  <circle cx="140" cy="267" r="6" fill="#ee8d61"/>
+  <circle cx="162" cy="267" r="6" fill="#f1c65b"/>
+  <circle cx="184" cy="267" r="6" fill="#48b8a6"/>
+  <rect x="116" y="310" width="112" height="206" rx="12" fill="#f4f1ea" stroke="#cbd4cd"/>
+  <rect x="248" y="310" width="260" height="206" rx="12" fill="#151a1d"/>
+  <rect x="270" y="335" width="214" height="20" rx="6" fill="#3b4b53"/>
+  <rect x="270" y="372" width="132" height="72" rx="10" fill="#48b8a6"/>
+  <rect x="418" y="372" width="66" height="72" rx="10" fill="#f1c65b"/>
+  <rect x="270" y="466" width="214" height="18" rx="5" fill="#5f7179"/>
+  <rect x="132" y="334" width="80" height="52" rx="8" fill="#20282d"/>
+  <rect x="132" y="404" width="80" height="52" rx="8" fill="#8da2ff"/>
+  <rect x="132" y="474" width="80" height="24" rx="6" fill="#d7dfda"/>
+  <text x="116" y="602" class="muted">App opens locally at 127.0.0.1:8010</text>
+
+  <rect x="580" y="224" width="258" height="132" class="box"/>
+  <circle cx="610" cy="258" r="12" class="accentA"/>
+  <text x="636" y="263" class="label">Prompt to motion</text>
+  <text x="610" y="296" class="copy">Describe a beat, selected layer,</text>
+  <text x="610" y="319" class="copy">or whole-frame choreography.</text>
+
+  <rect x="868" y="224" width="258" height="132" class="box"/>
+  <circle cx="898" cy="258" r="12" class="accentB"/>
+  <text x="924" y="263" class="label">Preview and QA</text>
+  <text x="898" y="296" class="copy">Check timing, smoothness, prompt</text>
+  <text x="898" y="319" class="copy">fidelity, frame integrity, parity.</text>
+
+  <rect x="580" y="392" width="258" height="132" class="box"/>
+  <circle cx="610" cy="426" r="12" class="accentC"/>
+  <text x="636" y="431" class="label">LTX layer animation</text>
+  <text x="610" y="464" class="copy">Generate local video motion for</text>
+  <text x="610" y="487" class="copy">image layers without baking pixels.</text>
+
+  <rect x="868" y="392" width="258" height="132" class="box"/>
+  <circle cx="898" cy="426" r="12" class="accentD"/>
+  <text x="924" y="431" class="label">Final render</text>
+  <text x="898" y="464" class="copy">Export an MP4 after the preview</text>
+  <text x="898" y="487" class="copy">matches the intended motion plan.</text>
+
+  <path d="M532 392 C560 392 560 290 580 290" fill="none" stroke="#71827a" stroke-width="3"/>
+  <path d="M838 290 L868 290" fill="none" stroke="#71827a" stroke-width="3"/>
+  <path d="M709 356 L709 392" fill="none" stroke="#71827a" stroke-width="3"/>
+  <path d="M838 458 L868 458" fill="none" stroke="#71827a" stroke-width="3"/>
+
+  <rect x="92" y="616" width="210" height="38" class="pill"/>
+  <circle cx="116" cy="635" r="7" class="accentA"/>
+  <text x="132" y="640" class="copy">Private media stays local</text>
+  <rect x="326" y="616" width="220" height="38" class="pill"/>
+  <circle cx="350" cy="635" r="7" class="accentB"/>
+  <text x="366" y="640" class="copy">Models downloaded on first run</text>
+  <rect x="570" y="616" width="214" height="38" class="pill"/>
+  <circle cx="594" cy="635" r="7" class="accentC"/>
+  <text x="610" y="640" class="copy">No cloud upload required</text>
+</svg>

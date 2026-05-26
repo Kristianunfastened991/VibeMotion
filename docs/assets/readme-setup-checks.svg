@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="640" viewBox="0 0 1280 640" role="img" aria-labelledby="title desc">
+  <title id="title">VibeMotion first-run setup checks</title>
+  <desc id="desc">Checklist of dependencies and models verified by Launch-VibeMotion.bat.</desc>
+  <defs>
+    <style>
+      .bg { fill: #111719; }
+      .panel { fill: #1c2529; stroke: #405058; stroke-width: 2; rx: 18; }
+      .title { font: 800 42px "Segoe UI", Arial, sans-serif; fill: #f8faf7; }
+      .subtitle { font: 500 18px "Segoe UI", Arial, sans-serif; fill: #bdcac3; }
+      .head { font: 800 23px "Segoe UI", Arial, sans-serif; fill: #f8faf7; }
+      .item { font: 600 17px "Segoe UI", Arial, sans-serif; fill: #dfe8e3; }
+      .note { font: 500 14px "Segoe UI", Arial, sans-serif; fill: #93a49c; }
+      .ok { fill: #48b8a6; }
+      .install { fill: #f1c65b; }
+      .warn { fill: #ee8d61; }
+      .stroke { stroke: #dfe8e3; stroke-width: 4; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+    </style>
+  </defs>
+  <rect width="1280" height="640" class="bg"/>
+  <text x="62" y="78" class="title">What the first launch checks and installs</text>
+  <text x="66" y="112" class="subtitle">Default setup is intentionally strict: it prepares the local machine before the user starts editing.</text>
+
+  <g transform="translate(62 156)">
+    <rect width="270" height="360" class="panel"/>
+    <circle cx="38" cy="42" r="13" class="ok"/>
+    <path d="M31 42 l5 6 l10 -14" class="stroke"/>
+    <text x="62" y="50" class="head">Core runtime</text>
+    <text x="34" y="100" class="item">Python 3.11+</text>
+    <text x="34" y="136" class="item">.venv creation</text>
+    <text x="34" y="172" class="item">pip upgrade</text>
+    <text x="34" y="208" class="item">FastAPI + UI deps</text>
+    <text x="34" y="244" class="item">LTX Python deps</text>
+    <text x="34" y="306" class="note">If Python is missing, setup tries</text>
+    <text x="34" y="328" class="note">winget install first.</text>
+  </g>
+
+  <g transform="translate(365 156)">
+    <rect width="270" height="360" class="panel"/>
+    <circle cx="38" cy="42" r="13" class="install"/>
+    <text x="31" y="49" font-family="Segoe UI, Arial" font-size="20" font-weight="900" fill="#111719">+</text>
+    <text x="62" y="50" class="head">Media tools</text>
+    <text x="34" y="100" class="item">FFmpeg</text>
+    <text x="34" y="136" class="item">ffprobe</text>
+    <text x="34" y="172" class="item">NVENC when available</text>
+    <text x="34" y="208" class="item">CPU render fallback</text>
+    <text x="34" y="306" class="note">Rendering fails without FFmpeg,</text>
+    <text x="34" y="328" class="note">so setup stops with instructions.</text>
+  </g>
+
+  <g transform="translate(668 156)">
+    <rect width="270" height="360" class="panel"/>
+    <circle cx="38" cy="42" r="13" class="ok"/>
+    <path d="M31 42 l5 6 l10 -14" class="stroke"/>
+    <text x="62" y="50" class="head">LLM and STT</text>
+    <text x="34" y="100" class="item">Ollama app</text>
+    <text x="34" y="136" class="item">Text model pull</text>
+    <text x="34" y="172" class="item">Vision model pull</text>
+    <text x="34" y="208" class="item">Whisper STT cache</text>
+    <text x="34" y="306" class="note">Model names come from .env,</text>
+    <text x="34" y="328" class="note">so advanced users can override.</text>
+  </g>
+
+  <g transform="translate(971 156)">
+    <rect width="270" height="360" class="panel"/>
+    <circle cx="38" cy="42" r="13" class="warn"/>
+    <text x="31" y="50" font-family="Segoe UI, Arial" font-size="22" font-weight="900" fill="#111719">!</text>
+    <text x="62" y="50" class="head">Motion models</text>
+    <text x="34" y="100" class="item">CUDA PyTorch 2.7</text>
+    <text x="34" y="136" class="item">LTX 2.3 checkpoint</text>
+    <text x="34" y="172" class="item">LTX upscaler</text>
+    <text x="34" y="208" class="item">Gemma text encoder</text>
+    <text x="34" y="306" class="note">LTX needs NVIDIA GPU/VRAM.</text>
+    <text x="34" y="328" class="note">Other editor features still work.</text>
+  </g>
+
+  <rect x="62" y="548" width="1178" height="52" rx="14" fill="#263137" stroke="#405058"/>
+  <text x="88" y="581" class="subtitle">The terminal prints [OK], [INSTALL], and [WARNING] lines so a new user can see exactly what happened.</text>
+</svg>

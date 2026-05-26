@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="560" viewBox="0 0 1280 560" role="img" aria-labelledby="title desc">
+  <title id="title">Choose the simplest VibeMotion path</title>
+  <desc id="desc">Three user paths: video only, Figma design, and LTX image motion.</desc>
+  <defs>
+    <style>
+      .bg { fill: #111719; }
+      .title { font: 800 42px "Segoe UI", Arial, sans-serif; fill: #f8faf7; }
+      .subtitle { font: 500 18px "Segoe UI", Arial, sans-serif; fill: #c0cbc5; }
+      .card { fill: #1d272b; stroke: #42545c; stroke-width: 2; rx: 20; }
+      .head { font: 800 25px "Segoe UI", Arial, sans-serif; fill: #f8faf7; }
+      .copy { font: 500 17px "Segoe UI", Arial, sans-serif; fill: #dce6e1; }
+      .note { font: 700 14px "Segoe UI", Arial, sans-serif; fill: #91a39b; }
+      .button { fill: #f8faf7; rx: 15; }
+      .buttonText { font: 800 16px "Segoe UI", Arial, sans-serif; fill: #111719; }
+      .a { fill: #48b8a6; }
+      .b { fill: #f1c65b; }
+      .c { fill: #ee8d61; }
+    </style>
+  </defs>
+  <rect width="1280" height="560" class="bg"/>
+  <text x="58" y="78" class="title">Pick the path that matches what you have</text>
+  <text x="62" y="112" class="subtitle">A new user does not need to understand every feature before starting.</text>
+
+  <g transform="translate(58 164)">
+    <rect width="360" height="300" class="card"/>
+    <circle cx="48" cy="50" r="22" class="a"/>
+    <path d="M39 50 l7 8 l16 -20" stroke="#111719" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="86" y="59" class="head">I only have a video</text>
+    <text x="34" y="118" class="copy">1. Upload video</text>
+    <text x="34" y="152" class="copy">2. Write what to improve</text>
+    <text x="34" y="186" class="copy">3. Preview</text>
+    <text x="34" y="220" class="copy">4. Render MP4</text>
+    <rect x="34" y="246" width="210" height="38" class="button"/>
+    <text x="56" y="271" class="buttonText">Start with Upload video</text>
+  </g>
+
+  <g transform="translate(460 164)">
+    <rect width="360" height="300" class="card"/>
+    <circle cx="48" cy="50" r="22" class="b"/>
+    <text x="39" y="59" font-family="Segoe UI, Arial" font-size="27" font-weight="900" fill="#111719">F</text>
+    <text x="86" y="59" class="head">I have a Figma design</text>
+    <text x="34" y="118" class="copy">1. Start VibeMotion</text>
+    <text x="34" y="152" class="copy">2. Run VibeMotion Export in Figma</text>
+    <text x="34" y="186" class="copy">3. Update from Figma Space</text>
+    <text x="34" y="220" class="copy">4. Drag frame to timeline</text>
+    <rect x="34" y="246" width="232" height="38" class="button"/>
+    <text x="56" y="271" class="buttonText">Use Figma plugin path</text>
+  </g>
+
+  <g transform="translate(862 164)">
+    <rect width="360" height="300" class="card"/>
+    <circle cx="48" cy="50" r="22" class="c"/>
+    <text x="39" y="59" font-family="Segoe UI, Arial" font-size="26" font-weight="900" fill="#111719">L</text>
+    <text x="86" y="59" class="head">I want AI layer video</text>
+    <text x="34" y="118" class="copy">1. Use image layer</text>
+    <text x="34" y="152" class="copy">2. Open LTX prompt</text>
+    <text x="34" y="186" class="copy">3. Generate preview</text>
+    <text x="34" y="220" class="copy">4. Apply if it looks good</text>
+    <rect x="34" y="246" width="240" height="38" class="button"/>
+    <text x="56" y="271" class="buttonText">Requires NVIDIA GPU</text>
+  </g>
+
+  <text x="62" y="518" class="note">Tip: Figma and LTX are optional. The basic video editor still works without them.</text>
+</svg>

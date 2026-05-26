@@ -1,0 +1,72 @@
+# Python/runtime
+.venv/
+__pycache__/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.coverage
+*.py[cod]
+*.egg-info/
+build/
+dist/
+
+# Node/runtime
+node_modules/
+
+# Local third-party checkouts/caches
+/vendor/
+
+# Editor/OS files
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+
+# Secrets and local environment
+.env
+.env.*
+!.env.example
+.secrets/
+*.pem
+*.key
+*_token.txt
+
+# Local ML models and caches
+/models/
+*.safetensors
+*.ckpt
+*.pt
+*.pth
+*.onnx
+
+# User projects, renders, QA output
+/projects/*
+!projects/.gitkeep
+/output/
+/qa_artifacts/
+/qa-artifacts/
+/test-results/
+/tmp/
+/.playwright-cli/
+/.qa_playwright/
+
+# Generated/imported design assets
+app/static/assets/figma-cache/
+app/static/assets/figma-images/
+app/static/assets/figma-plugin/
+app/static/assets/figma-thumbs/
+/style_presets/*
+!style_presets/.gitkeep
+
+# Logs and local debug media
+*.log
+debug_*.png
+*.lnk
+
+# Large/local media artifacts
+*.mp4
+*.mov
+*.mkv
+*.webm
+*.wav
+*.mp3
