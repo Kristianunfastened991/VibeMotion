@@ -344,7 +344,7 @@ function Ensure-LtxModels([string]$PythonExe) {
 
 Write-Host ""
 Write-Host "============================================"
-Write-Host " VibeMotion v1.0 first-run setup"
+Write-Host " VibeMotion v0.1.0-pre-alpha.1 first-run setup"
 Write-Host "============================================"
 Write-Host "This setup checks dependencies and downloads local models when needed."
 Write-Host "First launch can take a long time. Later launches are much faster."

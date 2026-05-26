@@ -419,7 +419,7 @@ def _composition_html(width: int, height: int, duration: float, motions: list[Mo
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>VibeMotion v1.0 Hyperframes Preview</title>
+  <title>VibeMotion v0.1.0 pre-alpha Hyperframes Preview</title>
   <style>
     :root {{
       --ink: #0d1424;

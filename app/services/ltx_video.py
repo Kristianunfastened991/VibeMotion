@@ -311,7 +311,7 @@ def _ensure_ltx_model_files(project_root: Path, model_paths: dict[str, Path]) ->
     raise RuntimeError(
         "LTX 2.3 model setup is incomplete. Missing: "
         + "; ".join(_missing_ltx_model_files(model_paths) or missing)
-        + ". Run the VibeMotion v1.0 launcher again to resume the public local model-pack download."
+        + ". Run the VibeMotion launcher again to resume the public local model-pack download."
     )
 
 

@@ -10,12 +10,12 @@ set "APP_URL=http://127.0.0.1:%APP_PORT%/app/index.html?fresh=1"
 powershell -NoProfile -ExecutionPolicy Bypass -File "%CD%\scripts\bootstrap.ps1"
 if errorlevel 1 (
   echo.
-  echo VibeMotion v1.0 setup failed.
+  echo VibeMotion v0.1.0-pre-alpha.1 setup failed.
   pause
   exit /b 1
 )
 
-echo Starting VibeMotion v1.0 server in a visible window...
+echo Starting VibeMotion v0.1.0-pre-alpha.1 server in a visible window...
 echo Leave this window open while the app is running.
 echo.
 echo Starting browser when server is ready...

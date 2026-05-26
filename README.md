@@ -1,4 +1,4 @@
-# VibeMotion v1.0
+# VibeMotion v0.1.0 pre-alpha
 
 > **Project status: pre-alpha / experimental local build.** VibeMotion is under
 > active development. Some workflows can be unstable, UI and API behavior may
