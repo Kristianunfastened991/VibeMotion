@@ -35,7 +35,7 @@ On the first launch VibeMotion prepares the local environment:
 ![First launch checks](assets/readme-setup-checks.svg)
 
 - creates `.env` from `.env.example` if needed;
-- finds or installs Python 3.11;
+- finds or installs Python 3.11+;
 - creates `.venv`;
 - installs Python dependencies;
 - installs the pinned CUDA PyTorch runtime used by LTX;
@@ -48,6 +48,12 @@ On the first launch VibeMotion prepares the local environment:
 
 The `models/` folder is local runtime data. It is not part of the GitHub
 repository.
+
+Automatic installs of Python, FFmpeg, and Ollama use Windows `winget`. If your
+Windows build does not have `winget`, setup stops with the official download link
+for the missing tool. Install it, reopen the terminal, and run
+`Launch-VibeMotion.bat` again. The script resumes and reuses anything it already
+installed.
 
 ## What To Do First In The App
 
@@ -99,6 +105,7 @@ Common requirements:
 
 - Windows 10/11;
 - Python 3.11 or newer;
+- Windows App Installer / `winget` for one-click automatic system installs;
 - NVIDIA GPU and current driver for LTX generation;
 - enough free disk space for Python packages and local model weights;
 - internet access on the first launch.

@@ -93,6 +93,7 @@ Before you start, make sure you have:
 | Windows 10/11 | The launch scripts are Windows `.bat`/PowerShell scripts. |
 | Internet on first launch | Dependencies and models may need to download. |
 | Free disk space | LTX/Gemma model files are large. Keep plenty of free space. |
+| Windows App Installer / `winget` | Used for automatic Python, FFmpeg, and Ollama installs when they are missing. |
 | NVIDIA GPU | Only required for LTX generation. Basic editing works without it. |
 | Figma Desktop | Only required if you want Figma import. |
 
@@ -121,6 +122,12 @@ The terminal prints clear `[OK]`, `[INSTALL]`, and `[WARNING]` lines. If a
 dependency is already installed, it is reused. If a model file is missing, setup
 downloads it. If something cannot be installed automatically, setup stops with a
 message explaining what to fix and which launcher to run again.
+
+Automatic system installs use Windows `winget`. If `winget` is not available,
+install the missing item manually from the official source named in the terminal
+message, reopen the terminal, and run `Launch-VibeMotion.bat` again. Python
+packages, Whisper cache, Ollama models, and LTX model files are still handled by
+the bootstrap script after the required system tools exist.
 
 The first launch is expected to be slow because model downloads are large. Later
 launches reuse `.venv` and `models/`.

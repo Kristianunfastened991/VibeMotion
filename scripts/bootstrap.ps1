@@ -7,6 +7,14 @@ param(
 $ErrorActionPreference = "Stop"
 $Root = (Resolve-Path (Join-Path $PSScriptRoot "..")).Path
 Set-Location $Root
+$env:PYTHONUTF8 = "1"
+$env:PYTHONIOENCODING = "utf-8"
+$env:PIP_DISABLE_PIP_VERSION_CHECK = "1"
+$env:PIP_PROGRESS_BAR = "off"
+try {
+  [Console]::OutputEncoding = [System.Text.Encoding]::UTF8
+  $OutputEncoding = [System.Text.Encoding]::UTF8
+} catch {}
 
 function Write-Step([string]$Message) {
   Write-Host ""
@@ -70,22 +78,60 @@ function Find-CommandPath([string]$Name, [string[]]$ExtraCandidates = @()) {
   return $null
 }
 
-function Find-Python {
-  $venvPython = Join-Path $Root ".venv\Scripts\python.exe"
-  if (Test-Path $venvPython) {
-    return $venvPython
+function Get-PythonInfo([string]$PythonExe) {
+  if ([string]::IsNullOrWhiteSpace($PythonExe)) {
+    return $null
   }
+  try {
+    $json = & $PythonExe -c "import json, sys; print(json.dumps({'executable': sys.executable, 'major': sys.version_info.major, 'minor': sys.version_info.minor, 'patch': sys.version_info.micro}))" 2>$null | Select-Object -First 1
+    if ([string]::IsNullOrWhiteSpace($json)) {
+      return $null
+    }
+    return $json | ConvertFrom-Json
+  } catch {
+    return $null
+  }
+}
 
+function Test-Python311OrNewer($Info) {
+  if (-not $Info) {
+    return $false
+  }
+  return ([int]$Info.major -gt 3) -or (([int]$Info.major -eq 3) -and ([int]$Info.minor -ge 11))
+}
+
+function Format-PythonInfo($Info) {
+  if (-not $Info) {
+    return "unknown Python"
+  }
+  return "Python $($Info.major).$($Info.minor).$($Info.patch) at $($Info.executable)"
+}
+
+function Remove-GeneratedVenv([string]$VenvDir) {
+  $rootPath = (Resolve-Path $Root).Path.TrimEnd("\")
+  $parent = (Resolve-Path (Split-Path -Parent $VenvDir)).Path.TrimEnd("\")
+  $leaf = Split-Path -Leaf $VenvDir
+  if ($parent -ne $rootPath -or $leaf -ne ".venv") {
+    throw "Refusing to remove unexpected virtualenv path: $VenvDir"
+  }
+  Remove-Item -LiteralPath $VenvDir -Recurse -Force
+}
+
+function Find-Python {
   $candidates = @(
-    { py -3.11 -c "import sys; print(sys.executable)" 2>$null },
-    { py -3 -c "import sys; print(sys.executable)" 2>$null },
-    { python -c "import sys; print(sys.executable)" 2>$null }
+    @{ Label = "py -3.11"; Probe = { py -3.11 -c "import sys; print(sys.executable)" 2>$null } },
+    @{ Label = "py -3"; Probe = { py -3 -c "import sys; print(sys.executable)" 2>$null } },
+    @{ Label = "python"; Probe = { python -c "import sys; print(sys.executable)" 2>$null } }
   )
   foreach ($candidate in $candidates) {
     try {
-      $path = (& $candidate | Select-Object -First 1)
+      $path = (& $candidate.Probe | Select-Object -First 1)
       if ($path -and (Test-Path $path)) {
-        return $path
+        $info = Get-PythonInfo $path
+        if (Test-Python311OrNewer $info) {
+          return $info.executable
+        }
+        Write-SetupWarning "Ignoring $($candidate.Label): $(Format-PythonInfo $info). VibeMotion requires Python 3.11+."
       }
     } catch {}
   }
@@ -95,33 +141,49 @@ function Find-Python {
     winget install -e --id Python.Python.3.11 --accept-package-agreements --accept-source-agreements
     $path = (py -3.11 -c "import sys; print(sys.executable)" 2>$null | Select-Object -First 1)
     if ($path -and (Test-Path $path)) {
-      return $path
+      $info = Get-PythonInfo $path
+      if (Test-Python311OrNewer $info) {
+        return $info.executable
+      }
     }
   }
 
-  throw "Python 3.11+ is required. Install Python 3.11, reopen this terminal, and run Launch-VibeMotion.bat again."
+  throw "Python 3.11+ is required. Install it from https://www.python.org/downloads/windows/ or Microsoft Store, reopen this terminal, and run Launch-VibeMotion.bat again."
 }
 
 function Ensure-PythonEnvironment {
   Write-Step "Checking Python and virtual environment."
-  $pythonExe = Find-Python
+  $venvDir = Join-Path $Root ".venv"
   $venvPython = Join-Path $Root ".venv\Scripts\python.exe"
+  if (Test-Path $venvPython) {
+    $venvInfo = Get-PythonInfo $venvPython
+    if (Test-Python311OrNewer $venvInfo) {
+      Write-Ok "$(Format-PythonInfo $venvInfo) in .venv"
+      return $venvPython
+    }
+    Write-SetupWarning "Existing .venv is not compatible: $(Format-PythonInfo $venvInfo). Recreating .venv."
+    Remove-GeneratedVenv $venvDir
+  }
+  $pythonExe = Find-Python
   if (-not (Test-Path $venvPython)) {
     Write-Install "Creating .venv"
-    & $pythonExe -m venv (Join-Path $Root ".venv")
+    & $pythonExe -m venv $venvDir
   }
   if (-not (Test-Path $venvPython)) {
     throw "Virtual environment was not created at $venvPython"
   }
-  $version = (& $venvPython -c "import sys; print('.'.join(map(str, sys.version_info[:3])))")
-  Write-Ok "Python $version in .venv"
+  $versionInfo = Get-PythonInfo $venvPython
+  if (-not (Test-Python311OrNewer $versionInfo)) {
+    throw "Virtual environment uses $(Format-PythonInfo $versionInfo), but VibeMotion requires Python 3.11+."
+  }
+  Write-Ok "$(Format-PythonInfo $versionInfo) in .venv"
   return $venvPython
 }
 
 function Ensure-PythonDependencies([string]$PythonExe) {
   Write-Step "Checking Python packages."
-  & $PythonExe -m pip install --upgrade pip
-  & $PythonExe -m pip install -e ".[ltx]"
+  & $PythonExe -m pip --disable-pip-version-check install --upgrade pip
+  & $PythonExe -m pip --disable-pip-version-check install -e ".[ltx]"
   & $PythonExe -c "import fastapi, uvicorn, PIL, faster_whisper, torch, transformers, diffusers, accelerate; print('[OK] Python packages import correctly')"
 }
 
@@ -135,7 +197,7 @@ function Ensure-CudaTorch([string]$PythonExe) {
   }
   if (-not $torchOk) {
     Write-Install "Installing pinned CUDA PyTorch runtime for LTX."
-    & $PythonExe -m pip install --index-url https://download.pytorch.org/whl/cu128 "torch==2.7.0+cu128" "torchaudio==2.7.0+cu128" "torchvision==0.22.0+cu128"
+    & $PythonExe -m pip --disable-pip-version-check install --index-url https://download.pytorch.org/whl/cu128 "torch==2.7.0+cu128" "torchaudio==2.7.0+cu128" "torchvision==0.22.0+cu128"
   }
   $cudaSummary = (& $PythonExe -c "import torch; print(f'torch={torch.__version__}; cuda_available={torch.cuda.is_available()}; devices={torch.cuda.device_count()}')")
   if ($cudaSummary -match "cuda_available=True") {
@@ -158,7 +220,7 @@ function Ensure-FFmpeg {
     }
   }
   if (-not $ffmpeg -or -not $ffprobe) {
-    throw "FFmpeg and ffprobe are required for rendering. Install FFmpeg or reopen the terminal after winget finishes, then run Launch-VibeMotion.bat again."
+    throw "FFmpeg and ffprobe are required for rendering. Install FFmpeg from https://ffmpeg.org/download.html or with winget, reopen the terminal, then run Launch-VibeMotion.bat again."
   }
   Write-Ok "ffmpeg: $ffmpeg"
   Write-Ok "ffprobe: $ffprobe"
@@ -235,7 +297,7 @@ function Ensure-Ollama {
     }
   }
   if (-not $ollama) {
-    throw "Ollama is required for agent planning and vision features. Install Ollama, reopen the terminal, and run Launch-VibeMotion.bat again."
+    throw "Ollama is required for agent planning and vision features. Install Ollama from https://ollama.com/download/windows or with winget, reopen the terminal, and run Launch-VibeMotion.bat again."
   }
   Write-Ok "ollama: $ollama"
   $baseUrl = Get-EnvValue "OLLAMA_BASE_URL" "http://127.0.0.1:11434"
