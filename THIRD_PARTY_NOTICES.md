@@ -4,6 +4,13 @@ This document summarizes the main third-party projects and model sources that
 VibeMotion is designed to interoperate with. It is an engineering compliance
 note, not legal advice.
 
+## Credits
+
+Application shell, interface, workflow layer, and practical editing wrapper:
+
+- AI Pulse: https://x.com/youraipulse
+- Amir Mushich: https://x.com/AmirMushich
+
 ## Source Inspiration And Local Vendor Checkouts
 
 The `vendor/` directory is ignored and is not intended to be published as part

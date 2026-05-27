@@ -9,6 +9,29 @@
 Local AI-assisted video editor for prompt-driven motion, Figma layers, LTX
 previews, and final MP4 renders.
 
+## Credits and sources
+
+Application shell, interface, workflow layer, and practical editing wrapper:
+
+- [AI Pulse](https://x.com/youraipulse)
+- [Amir Mushich](https://x.com/AmirMushich)
+
+Primary model, runtime, and workflow sources:
+
+- [Lightricks LTX-2](https://github.com/Lightricks/LTX-2)
+- [Lightricks LTX-2.3 model page](https://huggingface.co/Lightricks/LTX-2.3)
+- [Google Gemma terms](https://ai.google.dev/gemma/terms)
+- [google/gemma-3-12b-it-qat-q4_0-unquantized](https://huggingface.co/google/gemma-3-12b-it-qat-q4_0-unquantized)
+- [DeepBeepMeep/LTX-2 public model pack fallback](https://huggingface.co/DeepBeepMeep/LTX-2)
+- [Ollama](https://github.com/ollama/ollama)
+- [faster-whisper](https://github.com/SYSTRAN/faster-whisper)
+- [HyperFrames](https://github.com/heygen-com/hyperframes)
+- [video-use](https://github.com/browser-use/video-use)
+- [FFmpeg](https://github.com/FFmpeg/FFmpeg)
+
+Model weights are not included in this repository and remain subject to their
+own upstream licenses and terms.
+
 <p align="center">
   <img src="docs/assets/readme-hero.svg" alt="VibeMotion overview" width="100%">
 </p>

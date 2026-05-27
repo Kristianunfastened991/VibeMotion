@@ -4,6 +4,12 @@ VibeMotion is a local AI-assisted video editing prototype. It is intended to run
 on the user's own Windows machine and keep local projects, rendered media,
 model weights, tokens, and environment files outside the Git repository.
 
+Application shell, interface, workflow layer, and practical editing wrapper are
+credited to:
+
+- AI Pulse: https://x.com/youraipulse
+- Amir Mushich: https://x.com/AmirMushich
+
 This repository contains VibeMotion source code, launch scripts, the Figma plugin
 source, QA scripts, and documentation. It does not include generated videos,
 private projects, downloaded model weights, Figma exports, local logs, local
