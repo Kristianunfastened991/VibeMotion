@@ -9,6 +9,11 @@
 Local AI-assisted video editor for prompt-driven motion, Figma layers, LTX
 previews, and final MP4 renders.
 
+## Related projects
+
+- [GapCut](https://github.com/amirmushichge/GapCut) - a smaller local tool for
+  automatically removing pauses, silence, and extra gaps from recordings.
+
 ## Credits and sources
 
 Application shell, interface, workflow layer, and practical editing wrapper:
